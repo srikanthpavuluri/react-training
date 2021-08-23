@@ -5,33 +5,38 @@ class ContactPerson extends Component { // Inheritance
     constructor (props) {
         super(props);
         this.state = {
-            firstName: this.props.firstName, // this value
+            firstName: '', // this value
             lastName: '',
             email :'',
+            disableFirstName: false
         };
+        // useState, useEffect
     }
     // Mounting Phase
     componentWillMount() {
-        console.log("componentWillMount"); //1
+        console.log("componentWillMount triggered"); //1
+
     }
 
     componentDidMount() {
-        console.log("componentDidMount"); // 2
+        console.log("componentDidMount triggered"); // 2
+        // API calls
     }
 
     // Update Phase
     componentDidUpdate() {
-        console.log("componentDidUpdate"); //4
-    }
-
-    shouldComponentUpdate() {
-        // true or false
-        return true;
+        console.log("componentDidUpdate triggered"); //4
+        const {firstName, disableFirstName} = this.state;
+        if (firstName.length > 6 && disableFirstName === false) {
+            this.setState({
+                disableFirstName: true
+            });
+        }
     }
 
     // Unmount PHASE
     componentWillUnmount() {
-        console.log("componentWillUnmount"); // last
+        console.log("componentWillUnmount triggered"); // last
     }
 
     // Mounting - Installing
@@ -41,13 +46,13 @@ class ContactPerson extends Component { // Inheritance
     // setState => to update the component state value
 
     render () {
-        const {firstName, lastName, email} = this.state;
-
+        const {firstName, lastName, email, disableFirstName} = this.state;
+        console.log("render triggered");
+        console.log({firstName, lastName, email}, "state values");
         return (
             <div>
-               
                 <p>FirstName: {firstName}</p>
-                <p><input type="text" name="firstName" value={firstName} onChange={
+                <p><input type="text" disabled={disableFirstName} name="firstName" value={firstName} onChange={
                     (event) =>  {
                         console.log(event, 'event');
                         this.setState({
@@ -63,5 +68,7 @@ class ContactPerson extends Component { // Inheritance
 };
 
 export default ContactPerson;
+
+
 
 
