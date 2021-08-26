@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Counter from './Counter';
+import Counter from '../../Counter';
 
 class ContactPerson extends Component { // Inheritance
     constructor (props) {

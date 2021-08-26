@@ -1,14 +1,15 @@
 import logo from './logo.svg';
+import {BrowserRouter} from 'react-router-dom';
 import './App.css';
-import Contact from './Contact';
-import UserFinder from './pages/Users/UserFinder';
+import Layout from './Layout';
 
 function App() {
   return (
     <div className="App">
       {/* <header className="App-header"></header> */}
-      {/* <Contact /> */}
-      <UserFinder />
+      <BrowserRouter>
+        <Layout />
+      </BrowserRouter>
     </div>
   );
 }
