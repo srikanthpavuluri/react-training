@@ -5,6 +5,7 @@ import MainHeader from './components/MainHeader';
 import Home from './pages/Home';
 import UserSearch from './pages/Users/UserFinder';
 import Counter from './Counter';
+import ContactPerson from './pages/Contact';
 
 function Layout() {
   return (
