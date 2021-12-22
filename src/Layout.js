@@ -16,6 +16,7 @@ function Layout() {
           <Route path='/users' component={UserSearch}/> 
           <Route exact path='/products' component={Products} />
           <Route path='/products/:id' component={ProductDetail} />
+          <Route path='/Contact-Us' component={ContactPerson} />
           <Route exact path='/'> <Home /> </Route>
         </Switch>
       </main>
